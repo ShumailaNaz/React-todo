@@ -5,12 +5,21 @@ import { Tasks } from './components/Tasks'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
+const [tasks,setTasks]=useState([])
+const addTask=(taskTitle)=>{
+  setTasks([
+    ...tasks,
+    {
+      id:crypto.randomUUID(),
+      title:taskTitle,
+      status:false
+    }
+  ])
+}
   return (
     <div className="App">
-    <Header />
-    <Tasks />
+    <Header onAddTask={addTask} />
+    <Tasks task={tasks}/>
     </div>
   )
 }

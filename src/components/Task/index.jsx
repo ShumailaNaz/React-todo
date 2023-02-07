@@ -1,18 +1,23 @@
 import styles from './task.module.css'
-// import { TbTrash } from 'react-icons/ai';
-export function Task(){
+// import { CgTrash } from 'react-icons/ai';
+
+export function Task({task}){
+    console.log(task)
     return(
-        <div className={styles.task}>
+        <>
+      {task.map((item)=>(<div key={item.id} className={styles.task}>
 
             <button className={styles.checkContainer}>
 <div />
             </button>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, repellat.
+            <p>{item.title}
 
             </p>
-            {/* <button className={styles.deleteButton}>
-                <TbTrash size={20} />
-            </button> */}
-        </div>
+            <button className={styles.deleteButton}>Delete
+                {/* <BCgTrash size={20} /> */}
+            </button>
+        </div>)
+        )  } 
+        </>
     )
 }
